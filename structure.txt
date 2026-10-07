@@ -1,0 +1,127 @@
+D:\Projects\MERN Projects\CarePoint
+├── client
+|  ├── index.html
+|  ├── package-lock.json
+|  ├── package.json
+|  ├── postcss.config.js
+|  ├── public
+|  |  ├── android-chrome-192x192.png
+|  |  ├── android-chrome-512x512.png
+|  |  ├── apple-touch-icon.png
+|  |  ├── favicon-16x16.png
+|  |  ├── favicon-32x32.png
+|  |  ├── favicon.ico
+|  |  ├── favicon.svg
+|  |  ├── maskable-icon-512x512.png
+|  |  ├── maskable-source.svg
+|  |  └── site.webmanifest
+|  ├── readme.md
+|  ├── src
+|  |  ├── app
+|  |  |  ├── queryClient.js
+|  |  |  └── store.js
+|  |  ├── App.jsx
+|  |  ├── components
+|  |  |  ├── AttachmentUploader.jsx
+|  |  |  ├── CancelAppointmentModal.jsx
+|  |  |  ├── CreateAdminModal.jsx
+|  |  |  ├── CreateDoctorModal.jsx
+|  |  |  ├── DataTable.jsx
+|  |  |  ├── RescheduleModal.jsx
+|  |  |  ├── Sidebar.jsx
+|  |  |  ├── StatCard.jsx
+|  |  |  └── Topbar.jsx
+|  |  ├── features
+|  |  |  └── auth
+|  |  |     └── authSlice.js
+|  |  ├── hooks
+|  |  ├── index.css
+|  |  ├── layouts
+|  |  |  └── DashboardLayout.jsx
+|  |  ├── main.jsx
+|  |  ├── pages
+|  |  |  ├── AdminDashboard.jsx
+|  |  |  ├── AdminUsers.jsx
+|  |  |  ├── Appointments.jsx
+|  |  |  ├── BookAppointment.jsx
+|  |  |  ├── Consultation.jsx
+|  |  |  ├── DoctorDashboard.jsx
+|  |  |  ├── DoctorProfilePage.jsx
+|  |  |  ├── Doctors.jsx
+|  |  |  ├── LoginPage.jsx
+|  |  |  ├── MedicalRecords.jsx
+|  |  |  ├── Notifications.jsx
+|  |  |  ├── PatientDashboard.jsx
+|  |  |  ├── PatientProfile.jsx
+|  |  |  ├── Patients.jsx
+|  |  |  ├── Prescriptions.jsx
+|  |  |  ├── RegisterPage.jsx
+|  |  |  └── Schedules.jsx
+|  |  ├── routes
+|  |  |  ├── ProtectedRoute.jsx
+|  |  |  ├── RedirectIfAuthenticated.jsx
+|  |  |  └── RoleRoute.jsx
+|  |  └── services
+|  |     ├── api.js
+|  |     └── socket.js
+|  ├── tailwind.config.js
+|  └── vite.config.js
+├── package-lock.json
+├── package.json
+├── README.md
+└── server
+   ├── package-lock.json
+   ├── package.json
+   ├── src
+   |  ├── config
+   |  |  └── db.js
+   |  ├── controllers
+   |  |  ├── adminController.js
+   |  |  ├── appointmentController.js
+   |  |  ├── authController.js
+   |  |  ├── consultationController.js
+   |  |  ├── doctorController.js
+   |  |  ├── notificationController.js
+   |  |  ├── patientController.js
+   |  |  ├── prescriptionController.js
+   |  |  ├── recordController.js
+   |  |  ├── scheduleController.js
+   |  |  └── uploadController.js
+   |  ├── middleware
+   |  |  ├── auth.js
+   |  |  ├── errorHandler.js
+   |  |  ├── role.js
+   |  |  ├── upload.js
+   |  |  └── validate.js
+   |  ├── models
+   |  |  ├── Appointment.js
+   |  |  ├── DoctorProfile.js
+   |  |  ├── MedicalRecord.js
+   |  |  ├── Notification.js
+   |  |  ├── PatientProfile.js
+   |  |  ├── Prescription.js
+   |  |  └── User.js
+   |  ├── routes
+   |  |  ├── adminRoutes.js
+   |  |  ├── appointmentRoutes.js
+   |  |  ├── authRoutes.js
+   |  |  ├── consultationRoutes.js
+   |  |  ├── doctorRoutes.js
+   |  |  ├── notificationRoutes.js
+   |  |  ├── patientRoutes.js
+   |  |  ├── prescriptionRoutes.js
+   |  |  ├── recordRoutes.js
+   |  |  ├── scheduleRoutes.js
+   |  |  └── uploadRoutes.js
+   |  ├── server.js
+   |  ├── socket
+   |  |  └── index.js
+   |  └── utils
+   |     ├── encryption.js
+   |     ├── generateToken.js
+   |     └── Seed.js
+   └── uploads
+
+directory: 4104 file: 26457
+
+ignored: directory (143)
