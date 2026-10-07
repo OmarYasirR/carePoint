@@ -34,7 +34,9 @@ export default function Topbar({ title, onMenuClick }) {
   const handleLogout = async () => {
     try {
       await api.post('/auth/logout');
-    } finally {
+    } catch(error){
+      console.log(error)
+    }finally {
       disconnectSocket();
       dispatch(logout());
       navigate('/login', { replace: true });
