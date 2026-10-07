@@ -1,3 +1,6 @@
+![screenshot](client/public/android-chrome-512x512.png)
+
+
 # CarePoint — Clinic Management System
 
 Full-stack MERN clinic management platform: role-based auth (Admin /
