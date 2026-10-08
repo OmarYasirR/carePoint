@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { Paperclip, X, Loader2, FileText } from 'lucide-react';
 import api from '../services/api.js';
+import { serverFileUrl } from '../config.js';
 
 /**
  * Uploads one or more files to POST /api/uploads (multipart) and
@@ -48,7 +49,7 @@ export default function AttachmentUploader({ attachments, onChange }) {
         {(attachments || []).map((a, i) => (
           <div key={i} className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg px-3 py-2">
             <a
-              href={a.fileUrl}
+              href={serverFileUrl(a.fileUrl)}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 text-xs text-slate-600 hover:text-brand-primary truncate"

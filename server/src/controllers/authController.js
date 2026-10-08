@@ -5,10 +5,17 @@ const PatientProfile = require('../models/PatientProfile');
 const DoctorProfile = require('../models/DoctorProfile');
 const { generateAccessToken, generateRefreshToken } = require('../utils/generateToken');
 
+// In production the client and API are usually on different origins
+// (e.g. a static site + a Render web service). Browsers do not send
+// SameSite=Lax cookies on cross-origin fetch/XHR, which would silently
+// break token refresh and persistent login — so production uses
+// SameSite=None (which requires Secure, i.e. HTTPS). Locally, Vite's
+// proxy keeps everything same-origin over http, where Lax is correct.
+const isProd = process.env.NODE_ENV === 'production';
 const REFRESH_COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax',
+  secure: isProd,
+  sameSite: isProd ? 'none' : 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 

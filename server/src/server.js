@@ -26,16 +26,13 @@ const uploadRoutes = require('./routes/uploadRoutes');
 connectDB();
 
 const app = express();
-const allowedOrigins = (process.env.CLIENT_URL || '')
-  .split(',')
-  .map((s) => s.trim())
-  .filter(Boolean);
+
+// Render (and most PaaS hosts) terminate HTTPS at a reverse proxy in
+// front of the app. Trusting it lets Express see the real protocol/IP.
+if (process.env.NODE_ENV === 'production') app.set('trust proxy', 1);
 
 app.use(helmet());
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

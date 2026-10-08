@@ -1,0 +1,28 @@
+# Render Blueprint — deploys the API from the /server folder of this repo.
+# Dashboard: New > Blueprint > pick this repo. Values marked `sync: false`
+# are secrets you paste into the dashboard; they are never stored in git.
+services:
+  - type: web
+    name: carepoint-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI          # MongoDB Atlas connection string
+        sync: false
+      - key: CLIENT_URL         # exact origin of the deployed frontend, no trailing slash
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_EXPIRES_IN
+        value: 15m
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: 7d
+      - key: FIELD_ENCRYPTION_KEY   # 32 bytes, base64: openssl rand -base64 32
+        sync: false

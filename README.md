@@ -1,6 +1,3 @@
-![screenshot](client/public/android-chrome-512x512.png)
-
-
 # CarePoint — Clinic Management System
 
 Full-stack MERN clinic management platform: role-based auth (Admin /
@@ -117,6 +114,25 @@ middleware on the server; pages, components, features on the client).
   check that this plugin is still present in the Vite config.
 
 ## Recently added
+
+- **Responsive layout fixes** — the dashboard shell (`Sidebar.jsx`,
+  `Topbar.jsx`, `DashboardLayout.jsx`) was a fixed 256px-wide sidebar
+  with no mobile collapse at all, which either broke the layout or
+  squeezed page content into a sliver on phones. The sidebar is now an
+  off-canvas drawer below the `lg` breakpoint (opened via a hamburger
+  button in the Topbar, closed via backdrop tap, an X button, or
+  automatically on navigation) and the original always-visible static
+  rail at `lg` and above — no behavior change on desktop. Also fixed:
+  a Topbar flex-overflow bug (`min-w-0` was missing on the search
+  input's container, which can force horizontal overflow in a flex
+  row), ~16 form grids across profile/admin/doctor-creation modals
+  that jumped straight to 2–3 columns with no mobile breakpoint, the
+  Doctors page header/search bar not wrapping on narrow screens, and
+  the video consultation page's fixed `h-[calc(100vh-8rem)]` height
+  (correct for the desktop 3-column split, but wrong once the layout
+  stacks to a single column on mobile).
+  Verified with real Playwright screenshots at 375px, 768px, and
+  1280px viewports, not just a code read-through.
 
 - **Persistent login** — the server already issued a 7-day httpOnly
   refresh cookie on login (`REFRESH_COOKIE_OPTIONS` in

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { FileText, Paperclip, Plus } from 'lucide-react';
 import api from '../services/api.js';
+import { serverFileUrl } from '../config.js';
 import AttachmentUploader from '../components/AttachmentUploader.jsx';
 
 const emptyForm = {
@@ -170,7 +171,7 @@ export default function MedicalRecords() {
                     {detail.attachments.map((a, i) => (
                       <a
                         key={i}
-                        href={a.fileUrl}
+                        href={serverFileUrl(a.fileUrl)}
                         target="_blank"
                         rel="noreferrer"
                         className="flex items-center gap-2 text-xs text-brand-primary hover:underline"

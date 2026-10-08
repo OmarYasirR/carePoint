@@ -1,14 +1,13 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../config.js';
 import { store } from '../app/store.js';
 import { setAccessToken, logout } from '../features/auth/authSlice.js';
-import { API_BASE_URL } from '../config.js';
-
 
 // Axios instance: attaches the access token to every request and
 // transparently refreshes it once on a 401 before giving up.
 const api = axios.create({
   baseURL: API_BASE_URL,
-  withCredentials: true,
+  withCredentials: true, // sends the httpOnly refresh cookie
 });
 
 api.interceptors.request.use((config) => {
@@ -42,7 +41,7 @@ api.interceptors.response.use(
       originalRequest._retry = true;
       isRefreshing = true;
       try {
-        const { data } = await axios.post('/api/auth/refresh', {}, { withCredentials: true });
+        const { data } = await axios.post(`${API_BASE_URL}/auth/refresh`, {}, { withCredentials: true });
         store.dispatch(setAccessToken(data.accessToken));
         processQueue(null, data.accessToken);
         originalRequest.headers.Authorization = `Bearer ${data.accessToken}`;
