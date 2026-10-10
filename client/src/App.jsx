@@ -26,6 +26,7 @@ import Notifications from './pages/Notifications.jsx';
 import AdminUsers from './pages/AdminUsers.jsx';
 import PatientProfile from './pages/PatientProfile.jsx';
 import DoctorProfilePage from './pages/DoctorProfilePage.jsx';
+import Loader from './components/Loader.jsx';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -40,8 +41,8 @@ export default function App() {
 
   if (!initialized) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
-        <div className="w-8 h-8 border-2 border-brand-primary border-t-transparent rounded-full animate-spin" />
+      <div className="fixed inset-0 grid place-items-center">
+        <Loader />
       </div>
     );
   }
